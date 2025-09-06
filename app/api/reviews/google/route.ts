@@ -45,10 +45,37 @@ export async function GET(req: Request) {
     if (!resp.ok) {
       return NextResponse.json(
         { status: 'error', message: `Google responded ${resp.status}` },
-        { status: resp
+        { status: resp.status }
+      );
+    }
+    const json = await resp.json();
 
+    const listingName: string = json?.result?.name || 'Google Place';
+    const listingId = listingName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
+    const normalized = (json?.result?.reviews || []).map((r: any, idx: number) => {
+      const ts = new Date((r.time || 0) * 1000);
+      return {
+        id: `google-${idx}-${r.time}`,
+        listingId,
+        listingName,
+        reviewType: 'guest-to-host',
+        channel: 'google',
+        status: 'published',
+        overallRating: r.rating ?? null,
+        categories: [],
+        comment: r.text || '',
+        author: r.author_name || 'Google User',
+        submittedAt: ts.toISOString(),
+        submittedDate: ts.toISOString().slice(0, 10),
+      };
+    });
 
-
-
-ChatGPT can make mistakes. 
+    return NextResponse.json({ status: 'success', count: normalized.length, result: normalized });
+  } catch (err: any) {
+    return NextResponse.json(
+      { status: 'error', message: err?.message || 'Unexpected error' },
+      { status: 500 }
+    );
+  }
+}
