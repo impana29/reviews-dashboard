@@ -1,0 +1,17 @@
+// components/ui/Card.tsx
+import React from 'react';
+export const Card = ({ children, className = '' }: React.PropsWithChildren<{ className?: string }>) => (
+<div className={`rounded-2xl shadow-sm bg-white p-5 ${className}`}>{children}</div>
+);
+
+
+// components/ui/Badge.tsx
+export const Badge = ({ children }: React.PropsWithChildren) => (
+<span className="inline-block text-xs px-2 py-1 rounded-full bg-gray-100">{children}</span>
+);
+
+
+// components/ui/Button.tsx
+export const Button = ({ children, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
+<button className="px-4 py-2 rounded-xl bg-black text-white hover:opacity-90" {...props}>{children}</button>
+);
