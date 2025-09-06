@@ -30,7 +30,7 @@ async function fetchHostawayLive(): Promise<HostawayReview[] | null> {
       ? json
       : [];
 
-    return list.map((r: any) => ({
+    const mapped: HostawayReview[] = list.map((r: any) => ({
       id: r.id ?? r.reviewId ?? r._id ?? Math.random().toString(36).slice(2),
       type: r.type ?? r.reviewType ?? "guest-to-host",
       status: r.status ?? "published",
@@ -45,7 +45,8 @@ async function fetchHostawayLive(): Promise<HostawayReview[] | null> {
       guestName: r.guestName ?? r.author ?? r.reviewerName ?? "Guest",
       listingName: r.listingName ?? r.propertyName ?? r.listing?.name ?? "Listing",
       channel: r.channel ?? "hostaway",
-    })) as HostawayReview[];
+    }));
+    return mapped;
   } catch {
     return null;
   }
