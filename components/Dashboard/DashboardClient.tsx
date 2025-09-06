@@ -1,4 +1,3 @@
-// components/Dashboard/DashboardClient.tsx
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
@@ -37,8 +36,8 @@ export default function DashboardClient({ all }: { all: NormalizedReview[] }) {
     to: "",
     search: "",
   });
-
   const [approved, setApproved] = useState<string[]>([]);
+
   const rows = useMemo(() => applyFilters(all, filters), [all, filters]);
 
   useEffect(() => {
