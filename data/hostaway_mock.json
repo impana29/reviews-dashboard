@@ -1,0 +1,53 @@
+{
+"status": "success",
+"result": [
+{
+"id": 7453,
+"type": "host-to-guest",
+"status": "published",
+"rating": null,
+"publicReview": "Shane and family are wonderful! Would definitely host again :)",
+"reviewCategory": [
+{ "category": "cleanliness", "rating": 10 },
+{ "category": "communication", "rating": 10 },
+{ "category": "respect_house_rules", "rating": 10 }
+],
+"submittedAt": "2020-08-21 22:45:14",
+"guestName": "Shane Finkelstein",
+"listingName": "2B N1 A - 29 Shoreditch Heights",
+"channel": "hostaway"
+},
+{
+"id": 7454,
+"type": "guest-to-host",
+"status": "published",
+"rating": 9,
+"publicReview": "Great location and clean apartment. Some street noise at night.",
+"reviewCategory": [
+{ "category": "cleanliness", "rating": 9 },
+{ "category": "communication", "rating": 9 },
+{ "category": "location", "rating": 8 }
+],
+"submittedAt": "2021-01-05 10:00:00",
+"guestName": "Anita",
+"listingName": "2B N1 A - 29 Shoreditch Heights",
+"channel": "airbnb"
+},
+{
+"id": 9101,
+"type": "guest-to-host",
+"status": "published",
+"rating": 8,
+"publicReview": "Lovely decor, easy check-in. Wi-Fi was spotty.",
+"reviewCategory": [
+{ "category": "check_in", "rating": 9 },
+{ "category": "amenities", "rating": 7 },
+{ "category": "wifi", "rating": 6 }
+],
+"submittedAt": "2022-06-12 15:30:00",
+"guestName": "Marco",
+"listingName": "Soho Loft - 12A",
+"channel": "booking"
+}
+]
+}
